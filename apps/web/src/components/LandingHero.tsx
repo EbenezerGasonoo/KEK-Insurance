@@ -8,13 +8,16 @@ import { LandingClaimTimelineMini } from "./LandingClaimTimelineMini";
 export function LandingHero() {
   return (
     <section className="relative overflow-hidden min-h-[86vh]">
-      <div
-        className="absolute inset-0 bg-cover bg-center"
-        style={{
-          backgroundImage:
-            "url(https://images.unsplash.com/photo-1554224155-6726b3ff858f?auto=format&fit=crop&w=1800&q=70)"
-        }}
-      />
+      <div className="absolute inset-0">
+        <Image
+          src="/landing-hero-family-bg.png"
+          alt=""
+          fill
+          priority
+          sizes="100vw"
+          className="object-cover object-center"
+        />
+      </div>
       <div className="absolute inset-0 bg-[#111789]/92" />
 
       <div className="relative max-w-7xl mx-auto px-4 pt-8 pb-14">
