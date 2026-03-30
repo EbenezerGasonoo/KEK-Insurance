@@ -6,17 +6,17 @@ const tiles = [
   {
     title: "Real-time transparency",
     body: "A clear claims journey with milestone updates designed to reduce uncertainty.",
-    img: "https://images.unsplash.com/photo-1559526324-593bc073d938?auto=format&fit=crop&w=1200&q=70"
+    img: "https://images.unsplash.com/photo-1454165804606-c3d57bc86b40?auto=format&fit=crop&w=1200&q=70"
   },
   {
     title: "Seamless communication",
     body: "From the quote funnel to WhatsApp handoff, every step stays connected.",
-    img: "https://images.unsplash.com/photo-1521791055366-0d553872125f?auto=format&fit=crop&w=1200&q=70"
+    img: "https://images.unsplash.com/photo-1521791136064-7986c2920216?auto=format&fit=crop&w=1200&q=70"
   },
   {
     title: "Fast onboarding",
     body: "SME qualification designed to get results in under 2 minutes (demo).",
-    img: "https://images.unsplash.com/photo-1523580846011-d3a5bc25702b?auto=format&fit=crop&w=1200&q=70"
+    img: "https://images.unsplash.com/photo-1450101499163-c8848c66ca85?auto=format&fit=crop&w=1200&q=70"
   }
 ];
 

@@ -68,7 +68,7 @@ export function LandingClaimsAnchor() {
             <div className="relative h-44 sm:h-48">
               {/* eslint-disable-next-line @next/next/no-img-element */}
               <img
-                src="https://images.unsplash.com/photo-1557804506-669a67965ba0?auto=format&fit=crop&w=1400&q=70"
+                src="https://images.unsplash.com/photo-1551836022-d5d88e9218df?auto=format&fit=crop&w=1400&q=70"
                 alt="Claims support"
                 className="w-full h-full object-cover"
                 loading="lazy"

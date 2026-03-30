@@ -12,7 +12,7 @@ export function LandingHero() {
         className="absolute inset-0 bg-cover bg-center"
         style={{
           backgroundImage:
-            "url(https://images.unsplash.com/photo-1521737604893-d14cc237f11d?auto=format&fit=crop&w=1800&q=70)"
+            "url(https://images.unsplash.com/photo-1554224155-6726b3ff858f?auto=format&fit=crop&w=1800&q=70)"
         }}
       />
       <div className="absolute inset-0 bg-[#111789]/92" />
