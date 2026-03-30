@@ -1,0 +1,35 @@
+@import "tailwindcss";
+
+:root {
+  --kek-primary: #111789; /* Midnight Blue */
+  --kek-foreground: #0b1220;
+  --kek-surface: #ffffff; /* Pure White */
+  --kek-accent: #d4af37; /* Gold */
+  --kek-muted: #6b7280;
+}
+
+@theme inline {
+  --color-background: var(--kek-surface);
+  --color-foreground: var(--kek-foreground);
+  --color-primary: var(--kek-primary);
+  --color-accent: var(--kek-accent);
+  --color-muted: var(--kek-muted);
+}
+
+@media (prefers-color-scheme: dark) {
+  :root {
+    --kek-surface: #0b1020;
+    --kek-foreground: #edf1ff;
+    --kek-muted: #9aa4b2;
+  }
+}
+
+body {
+  background: var(--kek-surface);
+  color: var(--kek-foreground);
+  font-family: var(--font-kek-body);
+}
+
+html {
+  scroll-behavior: smooth;
+}

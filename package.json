@@ -1,0 +1,17 @@
+{
+  "name": "kek-insurance-platform",
+  "private": true,
+  "workspaces": [
+    "apps/*"
+  ],
+  "scripts": {
+    "dev": "concurrently -n web,api -c blue,magenta \"npm -w web run dev\" \"npm -w api run dev\"",
+    "build": "npm -w web run build && npm -w api run build",
+    "typecheck": "npm -w api run typecheck",
+    "lint": "npm -w web run lint"
+  },
+  "devDependencies": {
+    "concurrently": "^9.0.0"
+  }
+}
+
