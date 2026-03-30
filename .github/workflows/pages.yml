@@ -37,7 +37,7 @@ jobs:
           GITHUB_PAGES: "true"
           GITHUB_REPOSITORY: ${{ github.repository }}
           NEXT_PUBLIC_API_URL: ""
-          NEXTAUTH_URL: ""
+          NEXTAUTH_URL: https://${{ github.repository_owner }}.github.io/${{ github.event.repository.name }}/
           NEXTAUTH_SECRET: "presentation-only"
 
       - name: Setup Pages
