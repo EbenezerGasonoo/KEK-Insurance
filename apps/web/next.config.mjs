@@ -19,7 +19,11 @@ const nextConfig = {
   ...(isPresentationMode ? { output: "export" } : {}),
   ...(isRepoPages ? { basePath: `/${repoName}`, assetPrefix: `/${repoName}` } : {}),
   images: {
-    unoptimized: true
+    unoptimized: true,
+    remotePatterns: [
+      { protocol: "https", hostname: "plus.unsplash.com", pathname: "/**" },
+      { protocol: "https", hostname: "images.unsplash.com", pathname: "/**" }
+    ]
   }
 };
 

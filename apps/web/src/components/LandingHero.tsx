@@ -10,8 +10,8 @@ export function LandingHero() {
     <section className="relative overflow-hidden min-h-[86vh]">
       <div className="absolute inset-0">
         <Image
-          src="/landing-hero-family-bg.png"
-          alt=""
+          src="https://plus.unsplash.com/premium_photo-1661675606409-61ab79f53d9b?auto=format&fit=crop&w=1920&q=80"
+          alt="Portrait of happy African American family outdoors"
           fill
           priority
           sizes="100vw"
