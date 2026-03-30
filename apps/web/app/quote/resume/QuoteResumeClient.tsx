@@ -1,7 +1,7 @@
 "use client";
 
 import { useEffect, useMemo, useState } from "react";
-import { useRouter } from "next/navigation";
+import { useRouter, useSearchParams } from "next/navigation";
 import { motion } from "framer-motion";
 import { kekFetch } from "@/lib/api";
 import { useSession } from "next-auth/react";
@@ -18,8 +18,10 @@ type QuoteSession = {
   status: string;
 };
 
-export default function QuoteResumeClient({ token }: { token: string }) {
+export default function QuoteResumeClient() {
   const router = useRouter();
+  const searchParams = useSearchParams();
+  const token = searchParams.get("token") ?? "";
   const { data: session } = useSession();
 
   const [loading, setLoading] = useState(true);

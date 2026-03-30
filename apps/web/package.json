@@ -4,8 +4,8 @@
   "private": true,
   "scripts": {
     "dev": "next dev",
-    "build": "next build",
-    "build:presentation": "cross-env PRESENTATION_MODE=true GITHUB_PAGES=true next build",
+    "build": "next build --webpack",
+    "build:presentation": "cross-env PRESENTATION_MODE=true GITHUB_PAGES=true next build --webpack",
     "start": "next start",
     "lint": "eslint"
   },

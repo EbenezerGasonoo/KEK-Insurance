@@ -1,11 +1,17 @@
+import { Suspense } from "react";
 import QuoteResumeClient from "./QuoteResumeClient";
 
-export default function QuoteResumePage({
-  searchParams
-}: {
-  searchParams?: { token?: string };
-}) {
-  const token = searchParams?.token ?? "";
-  return <QuoteResumeClient token={token} />;
+export default function QuoteResumePage() {
+  return (
+    <Suspense
+      fallback={
+        <div className="min-h-screen bg-white flex items-center justify-center text-sm text-[#111789]/70">
+          Loading…
+        </div>
+      }
+    >
+      <QuoteResumeClient />
+    </Suspense>
+  );
 }
 
