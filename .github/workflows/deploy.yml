@@ -2,13 +2,17 @@ name: Deploy KEK Demo (Cloud Staging)
 
 on:
   push:
-    branches: [ "main" ]
+    branches: [ "main", "master" ]
   workflow_dispatch:
     inputs:
       deploy_staging:
         description: "Deploy to cloud-native staging (demo)"
         required: false
         default: "false"
+      demo_mode:
+        description: "Run API without database (faster presentation mode)"
+        required: false
+        default: "true"
 
 env:
   REGISTRY: ghcr.io
@@ -72,22 +76,32 @@ jobs:
             set -e
             API_IMAGE="${{ env.API_IMAGE }}:${{ github.sha }}"
             WEB_IMAGE="${{ env.WEB_IMAGE }}:${{ github.sha }}"
+            DEMO_MODE="${{ github.event.inputs.demo_mode }}"
+
+            if [ "$DEMO_MODE" = "true" ]; then
+              DATABASE_URL=""
+            else
+              DATABASE_URL="${{ secrets.DATABASE_URL }}"
+            fi
+
+            docker pull "$API_IMAGE"
+            docker pull "$WEB_IMAGE"
 
             docker rm -f kek-api || true
             docker rm -f kek-web || true
 
             docker run -d --name kek-api \
               -e PORT=4000 \
-              -e DATABASE_URL='${{ secrets.DATABASE_URL }}' \
+              -e DATABASE_URL="$DATABASE_URL" \
               -e WEB_BASE_URL='${{ secrets.WEB_BASE_URL }}' \
               -e WHATSAPP_NUMBER='${{ secrets.WHATSAPP_NUMBER }}' \
               -p 4000:4000 \
-              $API_IMAGE
+              "$API_IMAGE"
 
             docker run -d --name kek-web \
               -e NEXTAUTH_URL='${{ secrets.NEXTAUTH_URL }}' \
               -e NEXTAUTH_SECRET='${{ secrets.NEXTAUTH_SECRET }}' \
               -e NEXT_PUBLIC_API_URL='${{ secrets.NEXT_PUBLIC_API_URL }}' \
               -p 3000:3000 \
-              $WEB_IMAGE
+              "$WEB_IMAGE"
 

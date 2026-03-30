@@ -2,6 +2,9 @@ import NextAuth from "next-auth";
 import CredentialsProvider from "next-auth/providers/credentials";
 import type { NextAuthOptions } from "next-auth";
 
+export const dynamic = "force-static";
+export const revalidate = false;
+
 const demoUsers = [
   { id: "u_admin", name: "KEK Admin", email: "admin@kek.demo", role: "admin" as const },
   { id: "u_client", name: "Demo Client", email: "client@kek.demo", role: "client" as const }
@@ -55,6 +58,19 @@ export const authOptions: NextAuthOptions = {
   }
 };
 
+const isPresentationMode = process.env.PRESENTATION_MODE === "true";
+
 const handler = NextAuth(authOptions);
-export { handler as GET, handler as POST };
+
+async function presentationModeResponse() {
+  return new Response("Auth API disabled in presentation mode", { status: 404 });
+}
+
+export function generateStaticParams() {
+  if (!isPresentationMode) return [];
+  return [{ nextauth: ["presentation"] }];
+}
+
+export const GET = isPresentationMode ? presentationModeResponse : handler;
+export const POST = isPresentationMode ? presentationModeResponse : handler;
 

@@ -20,6 +20,10 @@ const content: Record<string, { title: string; summary: string }> = {
   }
 };
 
+export function generateStaticParams() {
+  return Object.keys(content).map((slug) => ({ slug }));
+}
+
 export default async function TeamSubPage({ params }: { params: Promise<{ slug: string }> }) {
   const { slug } = await params;
   const item = content[slug];
